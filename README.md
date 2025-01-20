@@ -1,7 +1,7 @@
 # Student_Loan_Simulator_Vue
 
 <!-- replace this sample image by an app screenshot -->
-![Preview for the application](/github/previeww.png)
+![Preview for the application](/github/preview.png)
 
 
 ## :information_source: About  
