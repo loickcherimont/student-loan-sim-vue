@@ -1,0 +1,8 @@
+<script setup lang="ts">
+</script>
+
+<template>
+    <footer class="flex justify-center py-5">
+        <p>&copy; 2025 | Loick Cherimont</p>
+    </footer>
+</template>
