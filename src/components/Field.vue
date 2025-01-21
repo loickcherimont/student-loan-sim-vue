@@ -4,6 +4,7 @@ defineProps<{
     name: string
     subtitle: string
     placeholder: string
+    isDisabled?: boolean
 }>()
 
 const model = defineModel()
@@ -23,14 +24,17 @@ const handleInput = (ev: Event) => {
 
         <div class="input-field flex flex-col gap-2">
             <label for="projectAmount"
-            class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium  text-purple-500">{{
-            name }}</label>
+                class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium  text-purple-500">{{
+                    name }}</label>
 
-        <input type="text" name="project_amount" id="projectAmount"
-            class="max-w-96 rounded-xl p-2.5 transition ease-in-out shadow duration-700 outline-none focus:ring-1 focus:ring-purple-500 text-slate-200 bg-slate-700"
-            :placeholder="placeholder" v-model="model" @input="handleInput" />
-        <p class="text-slate-400">{{ subtitle }}</p>
-        <p v-show="isEmptyNull" class="text-red-600 font-semibold">Error message</p>
+            <input v-if="isDisabled" type="text" name="project_amount" id="projectAmount"
+                class="max-w-96 rounded-xl p-2.5 transition ease-in-out shadow duration-700 outline-none focus:ring-1 focus:ring-purple-500 text-slate-200 bg-slate-900"
+                :placeholder="placeholder" v-model="model" @input="handleInput" disabled />
+            <input v-else type="text" name="project_amount" id="projectAmount"
+                class="max-w-96 rounded-xl p-2.5 transition ease-in-out shadow duration-700 outline-none focus:ring-1 focus:ring-purple-500 text-slate-200 bg-slate-700"
+                :placeholder="placeholder" v-model="model" @input="handleInput" />
+            <p class="text-slate-400">{{ subtitle }}</p>
+            <p v-show="isEmptyNull" class="text-red-600 font-semibold">Error message</p>
         </div>
 
         <!-- <div class="valid">
