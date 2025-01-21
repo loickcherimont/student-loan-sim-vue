@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-    monthlyPayment: number | string
+    monthlyPayment: number | string | undefined
 }>()
 </script>
 
