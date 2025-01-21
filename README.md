@@ -36,22 +36,17 @@ npm run dev
 ```
 
 
-<!-- ### Comment marche -t-elle?
+<!-- ### How to run ?
 
-1. Entrer le nom d'une ville de France
-
-> Ex: Paris (peu importe si majuscule ou minuscule)
-
-2. Appuyer sur le bouton de **Recherche**
-
-3. L'application renvoie une ou plusieurs cartes sur la ville recherchée avec quelques informations
-
-> :information_source: En cas de saisie non valide, l'application renvoie un message d'erreur -->
+To Do ... -->
 
 ## :hammer_and_wrench: To Do
 
-- Allow loan in FORM to change with loan in SCREEN
-- Apply the formular for loan [cf. Comment calculer les mensualités d'un crédit avec Excel](https://www.youtube.com/watch?v=DbjKrgGGFtk "How to evaluate monthly payment")
+- Fix the formular on UI
+- Responsive the application
+
+> [!IMPORTANT]  
+> Test the application using Vitest, before go on others projects
 
 
 ## :key: Owner
@@ -60,4 +55,4 @@ Made by Loick CHERIMONT
 
 Under Licence MIT  
 
-Last edition : 2025-01-20
+Last edition : 2025-01-21
