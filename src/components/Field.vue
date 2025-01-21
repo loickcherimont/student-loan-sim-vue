@@ -29,7 +29,7 @@ const handleInput = (ev: Event) => {
         <input type="text" name="project_amount" id="projectAmount"
             class="max-w-96 rounded-xl p-2.5 transition ease-in-out shadow duration-700 outline-none focus:ring-1 focus:ring-purple-500 text-slate-200 bg-slate-700"
             :placeholder="placeholder" v-model="model" @input="handleInput" />
-        <p>{{ subtitle }}</p>
+        <p class="text-slate-400">{{ subtitle }}</p>
         <p v-show="isEmptyNull" class="text-red-600 font-semibold">Error message</p>
         </div>
 
