@@ -1,9 +1,11 @@
 <script setup lang="ts">
-defineProps<{
+interface Props {
     property: string
-    propertyValue: string | number
+    propertyValue: number | string | undefined
     propertyType?: "rate" | "money"
-}>()
+}
+
+defineProps<Props>()
 </script>
 
 <template>
