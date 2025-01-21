@@ -25,7 +25,7 @@ This is a simulator for a student loan made with Vue 3 (TypeScript-ed).
 2. Clone the project into your workspace
 
 ```bash
-git clone https://github.com/loickcherimont/student-loan-simulator-vue.git
+git clone git@github.com:loickcherimont/student-loan-simulator-vue.git
 ```
 3. Go in the folder and run the project
 
