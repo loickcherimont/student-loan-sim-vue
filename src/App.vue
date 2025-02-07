@@ -8,6 +8,7 @@ import Header from './components/Header.vue';
 import MainHeader from './components/MainHeader.vue';
 import Footer from './components/Footer.vue';
 import { getMonthlyPayment } from './utils/utils';
+import DurationRange from './components/DurationRange.vue';
 
 const loan = ref<number>(0)
 // const monthlyPayment = ref<number>(0)
@@ -79,6 +80,8 @@ watch(totalRepay, () => loanCost.value = (Number(totalRepay.value) - loan.value)
             :is-disabled="true" />
           <!-- Duration -->
           <Field v-model="duration" name="Duration" subtitle="Between 1 and 10 years" placeholder="10 years" />
+          <!-- Test -->
+           <DurationRange />
         </form>
       </div>
     </div>
