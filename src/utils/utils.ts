@@ -1,13 +1,9 @@
+// Returns the monthly amount that client must repay to bank
 export function getMonthlyPayment(loan: number, apr: number, years: number): number {
 
-    // Type the different any precisely!!
-
-    // The amount of user's loan
-
-    // Year rate
-    const t: number = (apr / 100) / 12
+    const monthlyRate: number = (apr / 100) / 12
     
-    const numerator: number = loan * t
-    const denominator: number = 1 - Math.pow(1 + t, -years * 12)
+    const numerator: number = loan * monthlyRate
+    const denominator: number = 1 - 1 / Math.pow(1 + monthlyRate, years * 12)
     return Number((numerator / denominator).toFixed(2))
 }
