@@ -11,8 +11,8 @@ import { getMonthlyPayment } from './utils/utils';
 
 const loan = ref<number>(0)
 // const monthlyPayment = ref<number>(0)
-const duration = ref<number>(0)
-const apr = ref<number>(2.54)
+const duration = ref<number>(0) // number of year to repay
+const apr = ref<number>(2.53)
 const monthlyPayment = computed(() => getMonthlyPayment(loan.value, apr.value, duration.value))
 
 // Formula to evaluate the total amount to repay
@@ -53,14 +53,13 @@ watch(totalRepay, () => loanCost.value = (Number(totalRepay.value) - loan.value)
 
         <!-- display body -->
         <ul>
-          <!-- TAEG to translate in english -->
           <ScreenRow property="APR" :property-value="apr" property-type="rate" />
 
           <!-- Loan amount -->
           <ScreenRow property="Loan amount" :property-value="loan || 0" property-type="money" />
 
           <!-- Total amount to repay -->
-          <ScreenRow property="Total amount to repay" :property-value="totalRepay" property-type="money" />
+          <ScreenRow property="Total repay" :property-value="totalRepay" property-type="money" />
 
           <!-- Loan cost -->
           <ScreenRow property="Loan cost" :property-value="loanCost" property-type="money" />
@@ -79,7 +78,7 @@ watch(totalRepay, () => loanCost.value = (Number(totalRepay.value) - loan.value)
           <Field v-model="monthlyPayment" name="Monthly payment" subtitle="Between 100 and 2 000€" placeholder="2 000€"
             :is-disabled="true" />
           <!-- Duration -->
-          <Field v-model="duration" name="Duration" subtitle="Between 12 and 120 months" placeholder="20 months" />
+          <Field v-model="duration" name="Duration" subtitle="Between 1 and 10 years" placeholder="20 months" />
         </form>
       </div>
     </div>
