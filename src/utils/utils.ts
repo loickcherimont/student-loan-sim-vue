@@ -9,5 +9,5 @@ export function getMonthlyPayment(loan: number, apr: number, years: number): num
     
     const numerator: number = loan * t
     const denominator: number = 1 - Math.pow(1 + t, -years * 12)
-    return numerator / denominator
+    return Number((numerator / denominator).toFixed(2))
 }
