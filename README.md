@@ -42,7 +42,7 @@ To Do ... -->
 
 ## :hammer_and_wrench: To Do
 
-### Error handling
+### Fix form
 - Avoid **Total amount to repay** part displays **NaN**
 - Avoid **Loan cost** part displays **NaN**
 - Avoid **Screen header**, displays **INFINITY**
