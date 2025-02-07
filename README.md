@@ -48,7 +48,8 @@ To Do ... -->
 - [ ] Add an **readonly** field for durations
 
 ### Responsive
-- Adapt the application to all screens
+- [ ] Adapt the application to all screens
+- [ ] use the same template as monthly payment **Field** to style **DurationRange** component
 
 > [!IMPORTANT]  
 > Test the application using Vitest, before go on others projects
