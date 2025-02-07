@@ -78,7 +78,7 @@ watch(totalRepay, () => loanCost.value = (Number(totalRepay.value) - loan.value)
           <Field v-model="monthlyPayment" name="Monthly payment" subtitle="Between 100 and 2 000€" placeholder="2 000€"
             :is-disabled="true" />
           <!-- Duration -->
-          <Field v-model="duration" name="Duration" subtitle="Between 1 and 10 years" placeholder="20 months" />
+          <Field v-model="duration" name="Duration" subtitle="Between 1 and 10 years" placeholder="10 years" />
         </form>
       </div>
     </div>
