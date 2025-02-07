@@ -43,11 +43,9 @@ To Do ... -->
 ## :hammer_and_wrench: To Do
 
 ### Fix form
-- Avoid **Total amount to repay** part displays **NaN**
-- Avoid **Loan cost** part displays **NaN**
-- Avoid **Screen header**, displays **INFINITY**
-- Avoid for each **Field**, the value doesn't follow the **placeholder** (excluded **monthlyPayment**)
 - [x] Repair the formula into `.src./utils/utils.ts`
+- [ ] Replace the **Field** about duration with an `input[type="range"]`
+- [ ] Add an **readonly** field for durations
 
 ### Responsive
 - Adapt the application to all screens
