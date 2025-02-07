@@ -47,7 +47,7 @@ To Do ... -->
 - Avoid **Loan cost** part displays **NaN**
 - Avoid **Screen header**, displays **INFINITY**
 - Avoid for each **Field**, the value doesn't follow the **placeholder** (excluded **monthlyPayment**)
-- Repair the formula into `.src./utils/utils.ts`
+- [x] Repair the formula into `.src./utils/utils.ts`
 
 ### Responsive
 - Adapt the application to all screens
