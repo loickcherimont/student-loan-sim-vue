@@ -42,8 +42,15 @@ To Do ... -->
 
 ## :hammer_and_wrench: To Do
 
-- Fix the formular on UI
-- Responsive the application
+### Error handling
+- Avoid **Total amount to repay** part displays **NaN**
+- Avoid **Loan cost** part displays **NaN**
+- Avoid **Screen header**, displays **INFINITY**
+- Avoid for each **Field**, the value doesn't follow the **placeholder** (excluded **monthlyPayment**)
+- Repair the formula into `.src./utils/utils.ts`
+
+### Responsive
+- Adapt the application to all screens
 
 > [!IMPORTANT]  
 > Test the application using Vitest, before go on others projects
@@ -55,4 +62,4 @@ Made by Loick CHERIMONT
 
 Under Licence MIT  
 
-Last edition : 2025-01-21
+Last edition : 2025-02-07
