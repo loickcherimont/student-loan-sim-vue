@@ -44,8 +44,8 @@ To Do ... -->
 
 ### Fix form
 - [x] Repair the formula into `.src./utils/utils.ts`
-- [ ] Replace the **Field** about duration with an `input[type="range"]`
-- [ ] Add an **readonly** field for durations
+- [x] Replace the **Field** about duration with an `input[type="range"]`
+- [x] Add an **readonly** field for durations
 
 ### Responsive
 - [ ] Adapt the application to all screens
@@ -61,4 +61,4 @@ Made by Loick CHERIMONT
 
 Under Licence MIT  
 
-Last edition : 2025-02-07
+Last edition : 2025-02-09
