@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { isEmptyNull } from '@/utils/utils';
 import { ref, reactive } from 'vue';
 defineProps<{
     name: string
@@ -34,7 +33,7 @@ const handleInput = (ev: Event) => {
 
     // isEmptyNull.value = !input.value ? true : false
     // Check for each entry if field is empty
-    if(isEmptyNull(input.value)) {
+    if(!input.value) {
         errorField.isInError = true
         errorField.message = "Please, this field is required"
         return
