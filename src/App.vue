@@ -10,11 +10,11 @@ import Footer from './components/Footer.vue';
 import { getMonthlyPayment } from './utils/utils';
 import DurationRange from './components/DurationRange.vue';
 
-const loan = ref<number>(0)
+const loan = ref<number | string>("")
 // const monthlyPayment = ref<number>(0)
-const duration = ref<number>(0) // number of year to repay
+const duration = ref<number>(1) // number of year to repay
 const apr = ref<number>(2.53)
-const monthlyPayment = computed(() => getMonthlyPayment(loan.value, apr.value, duration.value))
+const monthlyPayment = computed(() => getMonthlyPayment(Number(loan.value), apr.value, duration.value))
 
 // Formula to evaluate the total amount to repay
 const totalRepay = ref<string>("0")
@@ -30,7 +30,7 @@ const loanCost = ref<string>("0")
 watch(monthlyPayment, () => totalRepay.value = (monthlyPayment.value * 12 * duration.value).toFixed(2))
 
 // To update loanCost if totalRepay changes
-watch(totalRepay, () => loanCost.value = (Number(totalRepay.value) - loan.value).toFixed(2))
+watch(totalRepay, () => loanCost.value = (Number(totalRepay.value) - Number(loan.value)).toFixed(2))
 
 // console.log(monthPayment(20000, 2.53, 2))
 
@@ -50,7 +50,7 @@ watch(totalRepay, () => loanCost.value = (Number(totalRepay.value) - loan.value)
       <!-- Display -->
       <div class="display">
         <!-- display header -->
-        <ScreenHeader :monthlyPayment="getMonthlyPayment(loan, apr, duration)" :duration="duration"/>
+        <ScreenHeader :monthlyPayment="getMonthlyPayment(Number(loan), apr, duration)" :duration="duration"/>
 
         <!-- display body -->
         <ul>
@@ -73,15 +73,15 @@ watch(totalRepay, () => loanCost.value = (Number(totalRepay.value) - loan.value)
       <div>
         <form>
           <!-- New Total loan -->
-          <Field v-model="loan" name="Total loan" subtitle="Between 1 500 and 20 000€" placeholder="20 000€" />
+          <Field v-model="loan" name="Total loan" subtitle="Between 1 500 and 20 000€" placeholder="20 000€" type="loan"/>
           <!-- Monthly payment -->
            <!-- getMonthlyPayment(loan, apr, duration) -->
           <Field v-model="monthlyPayment" name="Monthly payment" subtitle="Between 100 and 2 000€" placeholder="2 000€"
             :is-disabled="true" />
           <!-- Duration -->
-          <Field v-model="duration" name="Duration" subtitle="Between 1 and 10 years" placeholder="10 years" />
+          <!-- <Field v-model="duration" name="Duration" subtitle="Between 1 and 10 years" placeholder="10 years" /> -->
           <!-- Test -->
-           <DurationRange />
+           <DurationRange v-model="duration" name="Duration" subtitle="Between 1 and 10 years" />
         </form>
       </div>
     </div>
