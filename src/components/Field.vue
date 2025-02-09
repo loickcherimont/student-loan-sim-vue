@@ -1,21 +1,58 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { isEmptyNull } from '@/utils/utils';
+import { ref, reactive } from 'vue';
 defineProps<{
     name: string
     subtitle: string
     placeholder: string
     isDisabled?: boolean
+    type?: "loan"
 }>()
 
+interface ErrorField {
+    isInError: boolean
+    message: string
+}
+
 const model = defineModel()
+const errorField: ErrorField = reactive({
+    isInError: false,
+    message: ""
+}) 
 
 
-const isEmptyNull = ref<boolean | string>("")
+const isInvalidField = ref<boolean>(false)
 
 const handleInput = (ev: Event) => {
     const input = ev.target as HTMLInputElement
+    const UPPER_BOUND: number = 20000
+    const LOWER_BOUND: number = 1500
 
-    isEmptyNull.value = !input.value ? true : false
+// Reset errors if user follow instructions for this field
+    errorField.isInError = false
+    errorField.message = ""
+
+    // isEmptyNull.value = !input.value ? true : false
+    // Check for each entry if field is empty
+    if(isEmptyNull(input.value)) {
+        errorField.isInError = true
+        errorField.message = "Please, this field is required"
+        return
+    }
+
+    // Check for each entry if field is a number
+    if(isNaN(Number(input.value))) {
+        errorField.isInError = true
+        errorField.message = "Please, use a NUMBER to fill this field"
+        return
+    }
+
+    // Check for each entry if the number is between 1500 and 20000
+    if(Number(input.value) < LOWER_BOUND || Number(input.value) > UPPER_BOUND) {
+        errorField.isInError = true
+        errorField.message = `Please, use a NUMBER between ${LOWER_BOUND} and ${UPPER_BOUND}`
+        return
+    }
 }
 </script>
 
@@ -26,15 +63,20 @@ const handleInput = (ev: Event) => {
             <label for="projectAmount"
                 class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium  text-purple-500">{{
                     name }}</label>
-
+<!-- Other fields -->
             <input v-if="isDisabled" type="text" name="project_amount" id="projectAmount"
                 class="max-w-96 rounded-xl p-2.5 transition ease-in-out shadow duration-700 outline-none focus:ring-1 focus:ring-purple-500 text-slate-200 bg-slate-900"
-                :placeholder="placeholder" v-model="model" @input="handleInput" disabled />
+                :placeholder="placeholder" v-model="model"  disabled />
+                <!-- @input="handleInput" -->
             <input v-else type="text" name="project_amount" id="projectAmount"
                 class="max-w-96 rounded-xl p-2.5 transition ease-in-out shadow duration-700 outline-none focus:ring-1 focus:ring-purple-500 text-slate-200 bg-slate-700"
                 :placeholder="placeholder" v-model="model" @input="handleInput" />
-            <p class="text-slate-400">{{ subtitle }}</p>
-            <p v-show="isEmptyNull" class="text-red-600 font-semibold">Error message</p>
+                <!-- @input="handleInput" -->
+
+                <p class="text-slate-400">{{ subtitle }}</p>
+                <!-- Loan field  -->
+
+            <p v-show="errorField.isInError" class="text-red-600 font-semibold">{{ errorField.message }}</p>
         </div>
 
         <!-- <div class="valid">
