@@ -19,9 +19,6 @@ const errorField: ErrorField = reactive({
     message: ""
 }) 
 
-
-const isInvalidField = ref<boolean>(false)
-
 const handleInput = (ev: Event) => {
     const input = ev.target as HTMLInputElement
     const UPPER_BOUND: number = 20000
