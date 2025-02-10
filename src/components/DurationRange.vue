@@ -8,20 +8,21 @@ defineProps<{
 
 const model = defineModel()
 
-const duration = ref<number>(1)
+// const duration = ref<number>(1)
 </script>
 
 <template>
-    <!-- TODO: use the same template as monthly payment Field -->
-    <div class="range flex flex-col gap">
+     <!-- range flex flex-col gap -->
+    <div class="field flex flex-col gap-x-2 m-5 space-y-3">
         <label for="duration"
-            class="block text-sm font-medium  text-purple-500 p-3">{{
+            class="block text-sm font-medium text-purple-500">{{
                 name }}</label>
-        <p
+        <!-- <p
             class="max-w-96 rounded-xl p-2.5 transition ease-in-out shadow duration-700 outline-none focus:ring-1 focus:ring-purple-500 text-slate-200 bg-slate-900">
-            {{ model }} year{{ Number(model) > 1 ? "s" : "" }}</p>
+            {{ model }} year{{ Number(model) > 1 ? "s" : "" }}</p> -->
+             <p class="self-center">{{ model }} year{{ Number(model) > 1 ? "s" : "" }}</p>
 
         <input type="range" name="duration" id="duration" min="1" max="10" v-model="model" />
-        <p class="text-slate-400">{{ subtitle }}</p>
+        <p class="text-slate-400 self-center">{{ subtitle }}</p>
     </div>
 </template>
