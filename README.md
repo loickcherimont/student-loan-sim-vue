@@ -50,6 +50,7 @@ To Do ... -->
 ### Responsive
 - [x] Adapt the application to mobile and large screens
 - [ ] Create a mobile menu using Vue/Tailwind CSS
+- [ ] Custom `DurationRange` component style
 
 > [!IMPORTANT]  
 > Test the application using Vitest, before go on others projects
