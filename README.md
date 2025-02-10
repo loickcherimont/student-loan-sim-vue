@@ -48,8 +48,8 @@ To Do ... -->
 - [x] Add an **readonly** field for durations
 
 ### Responsive
-- [ ] Adapt the application to all screens
-- [ ] use the same template as monthly payment **Field** to style **DurationRange** component
+- [x] Adapt the application to mobile and large screens
+- [ ] Create a mobile menu using Vue/Tailwind CSS
 
 > [!IMPORTANT]  
 > Test the application using Vitest, before go on others projects

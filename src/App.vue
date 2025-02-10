@@ -37,56 +37,118 @@ watch(totalRepay, () => loanCost.value = (Number(totalRepay.value) - Number(loan
 </script>
 
 <template>
-  <!-- Header -->
-  <Header />
-  <!-- Main -->
-  <main class="text-slate-200 flex flex-col items-center gap-y-2 p-5">
-    <!-- {{ monthlyPayment2 || 0 }}-->
-    <!-- Header for main -->
-    <MainHeader />
+  <!-- For large screen -->
+  <div class="bg-slate-800 h-full text-slate-200 hidden lg:block">
+    <!-- Header -->
+    <Header />
+    <!-- Main -->
+    <main class="text-slate-200 flex flex-col items-center gap-y-2 p-5">
+      <!-- {{ monthlyPayment2 || 0 }}-->
+      <!-- Header for main -->
+      <MainHeader />
 
-    <!-- Display and form -->
-    <div class="flex shadow-lg shadow-slate-900 rounded-3xl p-10 gap-x-5">
-      <!-- Display -->
-      <div class="display">
-        <!-- display header -->
-        <ScreenHeader :monthlyPayment="getMonthlyPayment(Number(loan), apr, duration)" :duration="duration"/>
+      <!-- Display and form -->
+      <div class="flex shadow-lg shadow-slate-900 rounded-3xl p-10 gap-x-5">
+        <!-- Display -->
+        <div class="display">
+          <!-- display header -->
+          <ScreenHeader :monthlyPayment="getMonthlyPayment(Number(loan), apr, duration)" :duration="duration" />
 
-        <!-- display body -->
-        <ul>
-          <ScreenRow property="APR" :property-value="apr" property-type="rate" />
+          <!-- display body -->
+          <ul>
+            <ScreenRow property="APR" :property-value="apr" property-type="rate" />
 
-          <!-- Loan amount -->
-          <ScreenRow property="Loan amount" :property-value="loan || 0" property-type="money" />
+            <!-- Loan amount -->
+            <ScreenRow property="Loan amount" :property-value="loan || 0" property-type="money" />
 
-          <!-- Total amount to repay -->
-          <ScreenRow property="Total repay" :property-value="totalRepay" property-type="money" />
+            <!-- Total amount to repay -->
+            <ScreenRow property="Total repay" :property-value="totalRepay" property-type="money" />
 
-          <!-- Loan cost -->
-          <ScreenRow property="Loan cost" :property-value="loanCost" property-type="money" />
+            <!-- Loan cost -->
+            <ScreenRow property="Loan cost" :property-value="loanCost" property-type="money" />
 
-          <!-- Expenses for folder -->
-          <ScreenRow property="Expenses" property-value="Offered" />
-        </ul>
+            <!-- Expenses for folder -->
+            <ScreenRow property="Expenses" property-value="Offered" />
+          </ul>
+        </div>
+        <!-- Form -->
+        <div>
+          <form>
+            <!-- New Total loan -->
+            <Field v-model="loan" name="Total loan" subtitle="Between 1 500 and 20 000€" placeholder="20 000€"
+              type="loan" />
+            <!-- Monthly payment -->
+            <!-- getMonthlyPayment(loan, apr, duration) -->
+            <Field v-model="monthlyPayment" name="Monthly payment" subtitle="Between 100 and 2 000€"
+              placeholder="2 000€" :is-disabled="true" />
+            <!-- Duration -->
+            <!-- <Field v-model="duration" name="Duration" subtitle="Between 1 and 10 years" placeholder="10 years" /> -->
+            <!-- Test -->
+            <DurationRange v-model="duration" name="Duration" subtitle="Between 1 and 10 years" />
+          </form>
+        </div>
       </div>
-      <!-- Form -->
-      <div>
-        <form>
-          <!-- New Total loan -->
-          <Field v-model="loan" name="Total loan" subtitle="Between 1 500 and 20 000€" placeholder="20 000€" type="loan"/>
-          <!-- Monthly payment -->
-           <!-- getMonthlyPayment(loan, apr, duration) -->
-          <Field v-model="monthlyPayment" name="Monthly payment" subtitle="Between 100 and 2 000€" placeholder="2 000€"
-            :is-disabled="true" />
-          <!-- Duration -->
-          <!-- <Field v-model="duration" name="Duration" subtitle="Between 1 and 10 years" placeholder="10 years" /> -->
-          <!-- Test -->
-           <DurationRange v-model="duration" name="Duration" subtitle="Between 1 and 10 years" />
-        </form>
-      </div>
-    </div>
 
-  </main>
-  <!-- FOOTER -->
-  <Footer />
+    </main>
+    <!-- FOOTER -->
+    <Footer />
+  </div>
+
+  <!-- For mobile -->
+  <div class="bg-slate-800 h-full text-slate-200 lg:hidden block">
+    <!-- Header -->
+    <Header />
+    <!-- Main -->
+    <main class="text-slate-200 flex flex-col items-center gap-y-2 p-5">
+      <!-- {{ monthlyPayment2 || 0 }}-->
+      <!-- Header for main -->
+      <MainHeader />
+
+      <!-- Display and form -->
+      <div class="flex flex-col shadow-lg shadow-slate-900 rounded-3xl p-10 gap-x-5">
+        <!-- Display -->
+        <div class="display">
+          <!-- display header -->
+          <ScreenHeader :monthlyPayment="getMonthlyPayment(Number(loan), apr, duration)" :duration="duration" />
+
+          <!-- display body -->
+          <ul>
+            <ScreenRow property="APR" :property-value="apr" property-type="rate" />
+
+            <!-- Loan amount -->
+            <ScreenRow property="Loan amount" :property-value="loan || 0" property-type="money" />
+
+            <!-- Total amount to repay -->
+            <ScreenRow property="Total repay" :property-value="totalRepay" property-type="money" />
+
+            <!-- Loan cost -->
+            <ScreenRow property="Loan cost" :property-value="loanCost" property-type="money" />
+
+            <!-- Expenses for folder -->
+            <ScreenRow property="Expenses" property-value="Offered" />
+          </ul>
+        </div>
+        <!-- Form -->
+        <div>
+          <form>
+            <!-- New Total loan -->
+            <Field v-model="loan" name="Total loan" subtitle="Between 1 500 and 20 000€" placeholder="20 000€"
+              type="loan" />
+            <!-- Monthly payment -->
+            <!-- getMonthlyPayment(loan, apr, duration) -->
+            <Field v-model="monthlyPayment" name="Monthly payment" subtitle="Between 100 and 2 000€"
+              placeholder="2 000€" :is-disabled="true" />
+            <!-- Duration -->
+            <!-- <Field v-model="duration" name="Duration" subtitle="Between 1 and 10 years" placeholder="10 years" /> -->
+            <!-- Test -->
+            <DurationRange v-model="duration" name="Duration" subtitle="Between 1 and 10 years" />
+          </form>
+        </div>
+      </div>
+
+    </main>
+    <!-- FOOTER -->
+    <Footer />
+  </div>
+
 </template>
