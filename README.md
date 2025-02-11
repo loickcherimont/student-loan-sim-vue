@@ -49,7 +49,10 @@ To Do ... -->
 
 ### Responsive
 - [x] Adapt the application to mobile and large screens
-- [ ] Create a mobile menu using Vue/Tailwind CSS
+- [x] Create a mobile menu using Vue/Tailwind CSS
+
+
+### Next project update
 - [ ] Custom `DurationRange` component style
 
 > [!IMPORTANT]  
