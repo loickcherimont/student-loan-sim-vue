@@ -1,4 +1,22 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+// import MobileMenu from './MobileMenu.vue';
+
+const isShow = ref<boolean>(false)
+
+const handleClick = () => {
+    // testMenu: () => {
+    // const mobileMenuList = document.getElementById("mobileMenuList")
+
+    // if (!mobileMenuList) {
+    //     console.error(mobileMenuList + " is null!")
+    // }
+
+    // mobileMenuList?.classList.toggle("hidden")
+    // }
+    isShow.value = !isShow.value
+}
+
 </script>
 
 <template>
@@ -15,7 +33,19 @@
         <!-- <div>QUIT</div> -->
 
         <!-- Menu -->
-         <div>MOBILE</div>
+
+        <!-- TODO: Replace menu this menu with a Vue component -->
+        <!-- <MobileMenu @test-menu="() => isShow = !isShow" v-model="isShow" /> -->
+        <div>
+            <button type="button" @click="handleClick">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+            <div class="absolute" v-show="isShow" id="mobileMenuList">MENU</div>
+        </div>
         <!-- <div class="inset-y-0 left-0 flex items-center border">
             Mobile menu button
             <button type="button"
