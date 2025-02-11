@@ -44,7 +44,10 @@ const handleClick = () => {
                         d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
-            <div class="absolute" v-show="isShow" id="mobileMenuList">MENU</div>
+            <ul class="absolute bg-slate-900 right-0 top-[4.5rem] w-1/3" v-show="isShow" id="mobileMenuList">
+                <li><a href="#" class="block p-3">BACK</a></li>
+                <li><a href="#" class="block p-3">QUIT</a></li>
+            </ul>
         </div>
         <!-- <div class="inset-y-0 left-0 flex items-center border">
             Mobile menu button
